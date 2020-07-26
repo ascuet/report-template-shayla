@@ -1,0 +1,160 @@
+%
+% TTÜ Style Thesis template for LaTeX
+%
+% Public Version 1.1
+% 2019 Adjusted by Frank Korving for his TTÜ Bachelor Thesis, with contributions from Sander Arnus
+%
+% Public version 1.0
+% 2010 - 2013 Thijs Nugteren and Joos Buijs for TU/e Master Thesis
+%
+% THIS IS THE MAIN FILE (i.e. compile this file, compiling the others directly won't work)
+%
+\documentclass[12pt, a4paper]{report}
+
+% all the other includes etc. are done in the thesis.sty file.
+\hbadness=10000
+\hfuzz=50pt
+\usepackage{thesis}
+
+%
+% These commands need to be defined in order to produce a correct and personalized document
+%
+\newcommand{\doctitle}{ Thesis/project title}
+\newcommand{\docsubtitle}{MASTERS OF SCIENCE IN COMPUTER SCIENCE AND ENGINEERING}
+
+\newcommand{\me}{Author name}
+\newcommand{\studentcode}{Student ID}
+\newcommand{\university}{CHITTAGONG UNIVERSITY OF ENGINEERING AND TECHNOLOGY}
+\newcommand{\school}{School of ...}
+\newcommand{\department}{\textcolor{astral}{Department of computer Science and Engineering(CSE)}}
+
+\newcommand{\supervisor}{Name of superviosor}
+\newcommand{\supervisortitle}{PhD}
+\newcommand{\cosupervisor}{b}
+\newcommand{\cosupervisortitle}{MSC}
+\newcommand{\keywords}{Important, comma, separated, keywords, applicable, to, your, thesis}
+\newcommand{\version}{0.1 version}
+\newcommand{\monthYear}{Month Year}
+\newcommand{\Year}{Year}
+\newcommand{\signatureDate}{13, 01, 2020}
+
+\author{\me}
+
+%
+% PDF settings
+%
+\hypersetup
+{
+    pdfauthor={\me},
+    pdfsubject={\doctitle},
+    pdfkeywords={\keywords}
+}
+
+\begin{document}
+\renewcommand\baselinestretch{1.2}
+\baselineskip=18pt plus1pt
+\pagenumbering{roman}
+\include{titlepage}
+%\include {firstpage}
+\normalsize
+%%%%%%%%%%%%%%%%%%%%%%%
+% Certification page holding signature of the board member
+\include{sign}
+\pagebreak
+%%%%%%%%%%%%%%
+% include author's declaration page with signature
+\chapter*{\centerline{Author's Declaration of Originality}}\label{chapter:declaration}
+\input{chapters/authordeclaration.tex}
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% include dedication page
+\label{chapter:Dedication}
+\input{chapters/Dedicated.tex}
+\pagebreak
+\phantomsection
+
+\setcounter{tocdepth}{3}    % Sets maximum depth of Table Of Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Table of contents, list of table, list of figures, list of algorithms, list of terms and abbreviation
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+\clearpage \phantomsection
+\setcounter{figure}{0}
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\clearpage \phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\clearpage \phantomsection
+
+\addcontentsline{toc}{chapter}{List of Algorithms}
+\begin{spacing}{0.25}\listofalgorithms\end{spacing}
+\setlength\parskip{\bigskipamount}
+\chapter*{{List of Terms and Abbreviations}}\label{chapter:terms}
+\input{chapters/terms_abbreviations.tex}
+\addcontentsline{toc}{chapter}{Terms and Abbreviation}
+
+\chapter*{\centerline{Acknowledgement}}\label{chapter:acknowledge}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+\input{chapters/acknowledge}
+\chapter*{\centerline{Abstract}}\label{chapter:abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{chapters/abstract}
+\pagebreak
+
+\chapter{Introduction}\label{chapter:chapter1}
+\onehalfspacing
+\setcounter{page}{0}
+\pagenumbering{arabic}   %from here on, start the 'real' page numbering, from 1, with normal digits
+\input{chapters/Chapter1}
+
+\chapter{Literature Review}\label{chapter:chapter2}
+\input{chapters/Chapter2}
+
+\chapter{Proposed Methodology/Framework/ Mechanism/ System Architecture}\label{chapter:chapter3}
+\input{chapters/Chapter3}
+
+\chapter{Implementation }\label{chapter:chapter4}
+\input{chapters/Chapter4}
+
+\chapter{Experimental Result analysis and Evaluation}\label{chapter:chapter5r}
+\input{chapters/Chapter5}
+
+\chapter{Conclusion}\label{chapter:chapter6} 
+\input{chapters/Chapter6}
+
+\pagebreak
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\nocite{*}
+\printbibliography
+\pagebreak
+\phantomsection
+
+%\addcontentsline{toc}{chapter}{Appendix}\label{chapter:appendix-one}
+\begin{appendices}
+\titleformat{\chapter}[display]
+{\bfseries\Large} %
+{\begin{tabularx}{\linewidth}{@{}Xl@{}}
+\raisebox{3ex}{\rule[-1.8ex]{\linewidth}{5pt}}%\vspace{1.5ex}%
+ & \textsuperscript{\fontsize{30}{60}\selectfont{Appendix}}%
+{\fontsize{70}{60}\selectfont\thechapter}\end{tabularx}} %
+{10 pt}%
+{\bfseries\fontsize{25}{20}\selectfont}%
+%\setcounter{Appendix}{0}
+
+\chapter{} 
+\renewcommand{\thesection}{A.\arabic{section}}
+\input{appendices/appendix-one.tex}
+\chapter{}
+\renewcommand{\thesection}{B.\arabic{section}}
+%{\let\clearpage\relax\chapter*{Appendix B}}
+
+\input{appendices/appendix-something-else.tex}
+\chapter{}
+%{\let\clearpage\relax\chapter*{Appendix C}}
+\renewcommand{\thesection}{C.\arabic{section}}
+\input{appendices/finalresult.tex}
+\end{appendices}
+\end{document}
