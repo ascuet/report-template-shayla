@@ -1,0 +1,79 @@
+Some basic ways to manipulate text are \textit{italics}, \textbf{bold}, and \textcolor{blue}{colored text}. One can reference Figures (see Figure \ref{logo} for an example) as well as cite references which are defined in the \textit{references.bib} file.\cite{spectre,example-reference} 
+\begin{center}
+    \begin{figure}[ht] \label{logo}
+\centering
+\includegraphics[width=2 in]{figures/logo.jpg}
+\centering
+\end{figure} 
+\end{center}
+The \textit{Bibliography}, \textit{List of Figures} and \textit{List of Tables} are all automatically generated and references will be updated automatically as well. This means that if you've defined a citation but are not referencing it, it will not appear in the \textit{Bibliography}. This also means that any Figure / Table / Citations numbers are automatically updated as well. Numbering is done by order-of-appearance.
+\section{Item, enumerate, and list}
+One can create an itemized list:
+(i) \begin{itemize}
+    \item item a
+    \item item b
+    \item ...
+\end{itemize}
+(ii)
+\begin{itemize}[label=\ding{212}]
+\item First
+\item Second
+\end{itemize}
+Or enumerate them:
+(i) \begin{enumerate}
+    \item item x
+    \item item y
+    \item ...
+\end{enumerate}
+
+
+(ii) \begin{enumerate}[label=\roman*]
+  \item item x
+  \item item y
+  \item item ..
+\end{enumerate}
+
+(iii) \begin{enumerate}[label=\Roman*]
+\item item x
+  \item item y
+  \item item ..
+\end{enumerate}
+or listed them
+
+\begin{list}{$\circ$}{}  
+\item A  
+\item B  
+\end{list}
+Another example are showing below:
+\begin{itemize}
+
+\item[$\checkmark$] This will give a checkmark bullet.
+
+\item[$\square$] This will give a hollow square bullet.
+
+\item[$\blacksquare$] This will give a filled square bullet.
+
+\item[$\bigstar$] This will give you a bigstar bullet.
+
+\end{itemize}
+We can use variables set in the \textit{main.tex} file to render values like our title (\doctitle) or supervisor names (\textbf{Supervisor}: \supervisor, \textbf{Co-supervisor}: \cosupervisor{}).
+
+You may add following sections in this chapter.
+\begin{itemize}
+    \item objective
+    \item motivation
+    \item challenges
+    \item Design approach
+    \item contribution
+    \item Organize of the thesis
+    \item Summary
+\end{itemize}
+\section{Section, sub section, sub sub section, section without listing in the TOC}
+\section{Section} \label{sec}
+subsection will be under section.
+\subsection{Sub section}\label{sub}
+After subsection you can add "subsubsection"
+\section{section/subsection without listing in TOC}
+to do so you need to add "*" . For example
+\subsection*{Section without listing}
+This section won't be appear on TOC.

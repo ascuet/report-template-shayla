@@ -1,0 +1,164 @@
+\section{Algorithm \& Pseudo code \& Equations}
+Package algorithm2e has been used here.
+\subsection{Algorithm}
+Canny edge detection is a popular multi-stage edge detection algorithm which was developed by John F. Canny in 1986 \cite{40}. 
+\begin{algorithm}[ht]
+\DontPrintSemicolon
+\caption{Edge detection algorithm}
+\SetAlgoLined
+\KwInput{Gray Scale image}
+\KwOutput{Image with thin line}
+Calculate the gradient of all pixel in the X \& Y direction ($G_x$,$G_y$);
+
+Compute magnitude and direction of each pixel( G, $\theta)$;\
+
+Observe all nonmaximal value and reject them;\
+
+Measure the high ($T_H$) and low($T_L$) thresholds using the histogram of the gradient magnitude of the image;\
+
+\If{PixelValue>$T_H$}{
+Consider the pixel as strong edge}
+\ElseIf{($T_L$)< PixelValue <($T_H$)}
+{Consider the pixel as weak edge}
+\Else
+{Reject}
+\If{edge is strong edge}
+{select the edge}
+\ElseIf{Weak edge connected to any strong edge}
+{select the edge}
+\Else
+{Reject}
+\end{algorithm}
+\subsection{Pseudo code}
+\begin{algorithm}[ht]
+\caption{Pseudocode}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{Psudocode}{}
+\State $\textit{stringlen} \gets \text{length of }\textit{string}$
+\State $i \gets \textit{patlen}$
+\BState \emph{top}:
+\If {$i > \textit{stringlen}$} \Return false
+%\EndIf
+\State $j \gets \textit{patlen}$
+\BState \emph{loop}:
+\If {$\textit{string}(i) = \textit{path}(j)$}
+\State $j \gets j-1$.
+\State $i \gets i-1$.
+\State \textbf{goto} \emph{loop}.
+\State \textbf{close};
+%\EndIf
+\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+\State \textbf{goto} \emph{top}.
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\subsection{Equations}
+1st example:
+
+\begin{algorithm}
+\caption{Function}
+  \begin{algorithmic}[1]
+    \Function{Func\_name}{parameter}
+      \State statement 1
+      \State statement 2    
+    \EndFunction
+  \end{algorithmic}
+\end{algorithm}
+
+\begin{equation}
+  h_{ij}= \dfrac{1}{2\pi\sigma^2} exp (-\dfrac{(i-(k+1))^2+(j-(k+1))^2}{2\sigma^2}; 1\le i, j\le (2k+1);
+    \end{equation}
+    2nd example:
+    \begin{equation}
+    \|Edge\_gradient(G)\|= \sqrt{I_x^2+I_y^2}
+    Angle(\theta)= \tan^{-1}(\frac{I_y}{I_x})
+\end{equation}
+If you don't want to numbering any equation just use (\ no number) command.
+\begin{equation}[H]
+  SM1(x)=\begin{cases}
+    Stops, & \text{if $\alpha=1$}.\\
+    Moves, & \text{otherwise}.
+  \end{cases}
+  \nonumber
+\end{equation}
+\begin{equation}
+  SM2(x)=\begin{cases}
+  \mbox{\textit{Nod thrice}}, & \text{if $\beta=1$}.\\
+   \mbox{\textit{Nods once}}, & \text{if $\beta=2$}\\
+    \mbox{\textit{No movement}}, & \text{otherwise}.
+  \end{cases}
+  \nonumber
+\end{equation}
+\subsection{Matrix}[H]
+ $$
+ K_x=\begin{bmatrix} 
+-1 & 0 & 1 \\
+-2 & 0 & 2\\
+-1 & 0 & 1
+\end{bmatrix}
+ K_y=\begin{bmatrix}
+1 & 2 & 1 \\
+0 & 0 & 0\\
+-1 & -2 & -1
+\end{bmatrix}
+$$
+\section{Flow chart}
+\subsection{arrow and square}
+\tikzstyle{ellip}=[draw,ellipse,fill=white!20,minimum height=2em]
+\tikzstyle{rec}=[draw,rectangle,fill=white!20,text width=6em,text centered,minimum height=2em]
+\tikzstyle{line}=[draw,-latex']
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}[]
+
+\node[ellip](step1) at (2,0){Start};
+\node[rec] (step2) at (-1,-1) {Launch Speech to Text};
+\node[rec] (step3) at (5,-1) {Launch Sign Language Keyboard};
+\node[rec] (step4) at (-1,-3.3) {Speech to Sign Language Conversion with Help of Virtual Agent};
+\node[rec] (step5) at (5,-3.5) {Convert Bangla Text};
+\node[ellip] (step6) at (2,-4.7) {End};
+
+\path[line] (step1) -| (step2);
+\path[line] (step1) -| (step3);
+\path[line] (step2) -- (step4);
+\path[line] (step3) -- (step5);
+\path[line] (step4) |- (step6);
+\path[line] (step5) |- (step6);
+
+\end{tikzpicture}
+\end{center}
+\caption{Overview of the proposed system}
+\label{fig:first}
+\end{figure}
+\subsection{another example}
+\tikzstyle{ellip}=[draw,ellipse,fill=white!20,minimum height=1em,minimum width=7.1em]
+\tikzstyle{rec}=[draw,rectangle,fill=white!20,text width=6em,text centered,minimum height=2em]
+\tikzstyle{line}=[draw,-latex']
+\tikzstyle{line2}=[draw]
+\tikzstyle{rec2}=[draw=white,rectangle,fill=white!20,text width=6em,text centered,minimum height=2em]
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}[]
+
+\node[rec] (step1) at (-1,0) {Speaking Bangla};
+\node[rec] (step2) at (2,0) {Splitting Words from Sentence};
+\node[rec] (step3) at (5,0) {Splitting suffixes};
+\node[rec] (step4) at (5,-2) {Fetching Sign};
+\node[rec] (step5) at (-1,-2) {Sign Language Output};
+\node[rec2] (step7) at (2,-2){Raw folder containing animation};
+\node[ellip] (step6) at (2,-1) {};
+
+\path[line] (step1) -- (step2);
+\path[line] (step2) -- (step3);
+\path[line] (step3) -- (step4);
+\path[line2] (step4) -- (5,-3);
+\path[line] (5,-3) -| (step5);
+\path[line2] (3.05,-1) -- (3.05,-2.8);
+\path[line2] (3.05,-2.8) -- (0.95,-2.8);
+\path[line2] (0.95,-2.8) -- (0.95,-1);
+\draw[>= open triangle 45, <->](step4) -- (3.05,-2);
+\end{tikzpicture}
+\end{center}
+\caption{Layout for showing the signs on the mobile screen}
+\label{fig:second}
+\end{figure}
